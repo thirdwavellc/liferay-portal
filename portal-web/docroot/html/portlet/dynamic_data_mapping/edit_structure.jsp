@@ -173,6 +173,10 @@ if (Validator.isNotNull(script)) {
 						</c:otherwise>
 					</c:choose>
 				</aui:row>
+				
+				<c:if test="<%= !PropsValues.DYNAMIC_DATA_MAPPING_STRUCTURE_FORCE_AUTOGENERATE_KEY %>">
+					<aui:input disabled="<%= (structure != null) ? true : false %>" label='<%= LanguageUtil.format(pageContext, "x-key", ddmDisplay.getStructureName(locale)) %>' name="structureKey" />
+				</c:if>
 
 				<aui:input name="description" />
 
