@@ -113,7 +113,7 @@ public class CacheFilter extends BasePortalFilter {
 
 			if (queryString == null) {
 
-				int pos = url.indexOf(StringPool.QUESTION);
+				int pos = url.indexOf(CharPool.QUESTION);
 
 				if (pos > -1) {
 					queryString = url.substring(pos + 1);
