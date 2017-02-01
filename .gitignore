@@ -280,3 +280,5 @@ cobertura.ser
 /util-taglib/src/META-INF/liferay-portlet_2_0.tld
 /util-taglib/util-taglib*.asc
 /util-taglib/util-taglib*.jar
+
+!/build.aoc.properties
