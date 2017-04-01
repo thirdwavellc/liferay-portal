@@ -331,6 +331,8 @@ public class SitesImpl implements Sites {
 	public void copyPortletPermissions(Layout targetLayout, Layout sourceLayout)
 		throws Exception {
 
+		Group targetGroup = targetLayout.getGroup();
+
 		List<Role> roles = RoleLocalServiceUtil.getGroupRelatedRoles(
 			targetLayout.getGroupId());
 
@@ -356,7 +358,8 @@ public class SitesImpl implements Sites {
 				String roleName = role.getName();
 
 				if (roleName.equals(RoleConstants.ADMINISTRATOR) ||
-					(targetLayout.isPrivateLayout() &&
+						(!targetGroup.isLayoutSetPrototype() &&
+						targetLayout.isPrivateLayout() &&
 					 roleName.equals(RoleConstants.GUEST))) {
 
 					continue;
