@@ -55,6 +55,8 @@ public class CompanyThreadLocal {
 			try {
 				Company company = CompanyLocalServiceUtil.getCompany(companyId);
 
+				_companyId.set(companyId);
+
 				LocaleThreadLocal.setDefaultLocale(company.getLocale());
 				TimeZoneThreadLocal.setDefaultTimeZone(company.getTimeZone());
 			}
@@ -62,7 +64,6 @@ public class CompanyThreadLocal {
 				_log.error(e, e);
 			}
 
-			_companyId.set(companyId);
 		}
 		else {
 			LocaleThreadLocal.setDefaultLocale(null);
